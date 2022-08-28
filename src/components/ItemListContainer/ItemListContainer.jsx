@@ -1,10 +1,19 @@
+import ItemCount from "../ItemCount/ItemCount";
+
+const onAdd = (quantity) =>{
+    (console.log(`Compro: ${quantity} Items`))
+};
+
 
 const ItemListContainer = ({greeting, color}) => {
     console.log(greeting)
     return (
-        <p style={{color:color}}>
-            {greeting}
-        </p>
+        <div>
+            <p style={{color:color}}>
+                {greeting}
+            </p>
+            <ItemCount stock={10} initial={1} onAdd={onAdd}/>
+        </div>
         )
     }
 
