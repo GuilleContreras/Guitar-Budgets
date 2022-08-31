@@ -1,0 +1,15 @@
+.navbar{
+    background: url(../assets/Images/header-img.jpg) no-repeat center;
+    background-size: cover;
+    min-height: 100vh;
+  }
+
+  .navBarContainer{
+    position: relative;
+  }
+  
+  .navBarContent{
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -750%);
+  }
