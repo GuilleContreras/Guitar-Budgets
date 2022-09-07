@@ -2,6 +2,7 @@ import ItemCount from "../ItemCount/ItemCount";
 import { useState, useEffect } from "react"
 import ItemList from "./ItemList";
 
+
 const onAdd = (quantity) =>{
     (console.log(`Compro: ${quantity} Items`))
 };
@@ -40,7 +41,7 @@ const getProducts =new Promise((res,rej) => {
     }, 2000);
 })
 
-const ItemListContainer = ({greeting, color}) => {
+const ItemListContainer = () => {
 
     const [productos, setProductos] = useState([])
 
@@ -53,9 +54,6 @@ const ItemListContainer = ({greeting, color}) => {
 
     return (
         <div>
-            <p style={{color:color}}>
-                {greeting}
-            </p>
             <ItemCount stock={10} initial={1} onAdd={onAdd}/>
             <ItemList productos={productos} />
         </div>
