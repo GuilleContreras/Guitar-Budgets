@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import '../ItemListContainer/itemdetail.css';
+import Container from 'react-bootstrap/Container';
 
 const articlesImg =require.context(`../assets/articles`, true)
 
@@ -20,8 +21,9 @@ const ItemDetail = ({newproducto}) => {
     <div>
     {
         newproducto.map(producto => {
-        return (<>
-        <Button variant="primary" onClick={handleShow}  key={producto.id} className="m-5">
+        return (
+          <Container key={producto.id}>
+        <Button variant="primary" onClick={handleShow}  className="m-5">
           Descripción - Button Modal
         </Button>
   
@@ -45,7 +47,8 @@ const ItemDetail = ({newproducto}) => {
             </Button>
           </Modal.Footer>
         </Modal>
-      </>)
+        </Container>
+      )
         })
     }
     </div>
