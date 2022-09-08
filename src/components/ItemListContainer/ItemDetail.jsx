@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
@@ -9,12 +8,6 @@ import Container from 'react-bootstrap/Container';
 const articlesImg = require.context(`../assets/articles`, true)
 
 const ItemDetail = ({ newproducto }) => {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-
   return (
 
     <div>
