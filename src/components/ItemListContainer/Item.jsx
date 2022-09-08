@@ -1,5 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import ItemCount from '../ItemCount/ItemCount';
+
 
 
 const articlesImg =require.context(`../assets/articles`, true)
@@ -15,6 +17,7 @@ const Item = ({name, image, id, description}) => {
             <Card.Text>
              {description}
             </Card.Text>
+            <ItemCount />
             <Button variant="primary">Agregar Producto</Button>
           </Card.Body>
         </Card>

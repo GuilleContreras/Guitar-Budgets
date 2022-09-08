@@ -15,7 +15,7 @@ const NavBar = () => {
                 <div className="navBarContent">
                     <Row>
                         <Col>
-                        <Navbar.Brand href="#home">Guitar Budgets</Navbar.Brand>
+                        <Navbar.Brand href="#home" className='logoFont'>Guitar Budgets</Navbar.Brand>
                         </Col>
                         <Col>
                         <Nav className="me-auto">
