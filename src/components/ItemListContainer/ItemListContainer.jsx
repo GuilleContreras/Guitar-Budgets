@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import ItemList from "./ItemList";
 
 
+
 const onAdd = (quantity) =>{
     (console.log(`Compro: ${quantity} Items`))
 };
@@ -56,6 +57,7 @@ const ItemListContainer = () => {
         <div>
             <ItemCount stock={10} initial={1} onAdd={onAdd}/>
             <ItemList productos={productos} />
+
         </div>
          )
     }

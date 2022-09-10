@@ -19,7 +19,7 @@ const ItemDetail = ({ newproducto }) => {
               <Card style={{ width: '40rem' }}>
 
                 <Card.Body className="modalText">
-                  <Card.Title>{producto.name}</Card.Title>
+                <Card.Header>{producto.name}</Card.Header>
                   <Row>
                     <Col>
                       <Card.Text className="m-3">

@@ -10,7 +10,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 const NavBar = () => {
     return (
 
-        <Navbar bg="bg-transparent" variant="light" className="navbar">
+        <Navbar bg="light" variant="light" className="navbar">
             <Container className="navBarContainer">
                 <div className="navBarContent">
                     <Row>

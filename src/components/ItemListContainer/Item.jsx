@@ -1,7 +1,8 @@
+
+import { Col } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ItemCount from '../ItemCount/ItemCount';
-
 
 
 const articlesImg =require.context(`../assets/articles`, true)
@@ -9,8 +10,8 @@ const articlesImg =require.context(`../assets/articles`, true)
 const Item = ({name, image, id, description}) => {
 
     return (
-      
-        <Card style={{ width: '18rem' }} key={id} className="p-4 m-3">
+      <Col md={4}>
+        <Card border="danger" style={{ width: '18rem' }} key={id} className="p-4 m-3">
           <Card.Img variant="top" src={articlesImg(`./${ image }`)} />
           <Card.Body>
             <Card.Title>{name}</Card.Title>
@@ -21,6 +22,7 @@ const Item = ({name, image, id, description}) => {
             <Button variant="primary">Agregar Producto</Button>
           </Card.Body>
         </Card>
+      </Col>
 
       );
 
