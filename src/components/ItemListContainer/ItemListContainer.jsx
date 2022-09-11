@@ -1,12 +1,6 @@
-import ItemCount from "../ItemCount/ItemCount";
 import { useState, useEffect } from "react"
 import ItemList from "./ItemList";
 
-
-
-const onAdd = (quantity) =>{
-    (console.log(`Compro: ${quantity} Items`))
-};
 
 const productosMock = [
     {"id":1, "name":"Earnie Ball Polish", "price":2272, "description": "Guitar Polish", "category": "Accessories", "stock": 10, "image":"earnieball-polish.png"},
@@ -55,7 +49,6 @@ const ItemListContainer = () => {
 
     return (
         <div>
-            <ItemCount stock={10} initial={1} onAdd={onAdd}/>
             <ItemList productos={productos} />
 
         </div>

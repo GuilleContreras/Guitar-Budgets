@@ -2,7 +2,7 @@
 import { Col } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import ItemCount from '../ItemCount/ItemCount';
+import ItemDetailContainer from './ItemDetailContainer';
 
 
 const articlesImg =require.context(`../assets/articles`, true)
@@ -18,8 +18,7 @@ const Item = ({name, image, id, description}) => {
             <Card.Text>
              {description}
             </Card.Text>
-            <ItemCount />
-            <Button variant="primary">Agregar Producto</Button>
+            <Button variant="primary" onClick={() => <ItemDetailContainer id={id}/>}>Ver Detalle</Button>
           </Card.Body>
         </Card>
       </Col>

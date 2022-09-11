@@ -4,10 +4,15 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import '../ItemListContainer/itemdetail.css';
 import Container from 'react-bootstrap/Container';
+import ItemCount from '../ItemCount/ItemCount';
 
 const articlesImg = require.context(`../assets/articles`, true)
 
-const ItemDetail = ({ newproducto }) => {
+const onAdd = (quantity) =>{
+  (console.log(`Compro: ${quantity} Items`))
+};
+
+const ItemDetail = ({ newproducto, id }) => {
   return (
 
     <div>
@@ -41,6 +46,7 @@ const ItemDetail = ({ newproducto }) => {
                       </Card.Text>
                     </Col>
                   </Row>
+                  <ItemCount stock={10} initial={1} onAdd={onAdd}/>
                 </Card.Body>
               </Card>
             </Container>

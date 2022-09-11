@@ -19,10 +19,10 @@ const ItemCount = ({ stock, initial, onAdd }) => {
         }
     };
     return (
-        <Container>
+        <Container fluid>
             <Row className="justify-content-center">
                 <Col xs lg="2"><Button variant="primary" className="p-1" onClick={restNumber}>-</Button>{' '}</Col>
-                <Col md="auto"><h3 className="p-3">{count}</h3></Col>
+                <Col xs="2"><h3 className="p-3">{count}</h3></Col>
                 <Col xs lg="2"><Button variant="primary" className="p-1" onClick={addNumber}>+</Button>{' '}</Col>
             </Row>
             <Row className="p-1">
