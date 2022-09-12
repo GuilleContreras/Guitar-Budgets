@@ -1,4 +1,3 @@
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -8,11 +7,11 @@ import ItemCount from '../ItemCount/ItemCount';
 
 const articlesImg = require.context(`../assets/articles`, true)
 
-const onAdd = (quantity) =>{
+const onAdd = (quantity) => {
   (console.log(`Compro: ${quantity} Items`))
 };
 
-const ItemDetail = ({ newproducto, id }) => {
+const ItemDetail = ({ newproducto }) => {
   return (
 
     <div>
@@ -24,7 +23,7 @@ const ItemDetail = ({ newproducto, id }) => {
               <Card style={{ width: '40rem' }}>
 
                 <Card.Body className="modalText">
-                <Card.Header>{producto.name}</Card.Header>
+                  <Card.Header>{producto.name}</Card.Header>
                   <Row>
                     <Col>
                       <Card.Text className="m-3">
@@ -38,15 +37,10 @@ const ItemDetail = ({ newproducto, id }) => {
                   </Row>
                   <Row>
                     <Col>
-                      <Button variant="primary">Agregar Al Carrito</Button>
-                    </Col>
-                    <Col>
-                      <Card.Text className="m-3 cardTxt">
-                        Precio ${producto.price}
-                      </Card.Text>
+                      <Card.Header className="m-3 cardTxt">Precio ${producto.price}</Card.Header>
                     </Col>
                   </Row>
-                  <ItemCount stock={10} initial={1} onAdd={onAdd}/>
+                  <ItemCount stock={10} initial={1} onAdd={onAdd} />
                 </Card.Body>
               </Card>
             </Container>

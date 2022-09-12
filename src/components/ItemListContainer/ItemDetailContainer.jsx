@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react"
+import { useEffect,  useState } from "react"
+import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
 
 const newMock = [
@@ -39,16 +40,21 @@ const ItemDetailContainer = ({id}) => {
 
     const [newproducto, setnewProducto] = useState([])
 
+    const { idProducto } = useParams();
+
+    console.log(idProducto);
+
     useEffect(() => {
       getProducts
       .then((data) => {
-        setnewProducto(data)
+        Number(data.find(p => p.id === idProducto));
+        setnewProducto(data);
       })
     }, [])
 
     return (
-        <div>
-            <ItemDetail key={newproducto.id} newproducto={newproducto} name={newproducto.name} image={newproducto.image} price={newproducto.price} image2={newproducto.image2} image3={newproducto.image3} id={id}/>
+        <div>id
+            <ItemDetail id={idProducto} key={newproducto.id} newproducto={newproducto} name={newproducto.name} image={newproducto.image} price={newproducto.price} image2={newproducto.image2} image3={newproducto.image3}/>
         </div>
          )
     }

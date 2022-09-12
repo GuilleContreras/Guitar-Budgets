@@ -2,7 +2,7 @@
 import { Col } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import ItemDetailContainer from './ItemDetailContainer';
+import { Link } from 'react-router-dom';
 
 
 const articlesImg =require.context(`../assets/articles`, true)
@@ -18,7 +18,9 @@ const Item = ({name, image, id, description}) => {
             <Card.Text>
              {description}
             </Card.Text>
-            <Button variant="primary" onClick={() => <ItemDetailContainer id={id}/>}>Ver Detalle</Button>
+            <Link to={`/detalle/${id}`}>
+              <Button variant="primary">Ver Detalle</Button>
+            </Link>
           </Card.Body>
         </Card>
       </Col>

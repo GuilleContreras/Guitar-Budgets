@@ -50,7 +50,6 @@ const ItemListContainer = () => {
     return (
         <div>
             <ItemList productos={productos} />
-
         </div>
          )
     }

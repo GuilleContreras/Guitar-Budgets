@@ -6,6 +6,7 @@ import CartWidget from './CartWidget';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     return (
@@ -15,11 +16,15 @@ const NavBar = () => {
                 <div className="navBarContent">
                     <Row>
                         <Col>
-                        <Navbar.Brand href="#home" className='logoFont'>Guitar Budgets</Navbar.Brand>
+                        <Link to={`/`}>
+                            <Navbar.Brand href="#home" className='logoFont'>Guitar Budgets</Navbar.Brand>
+                        </Link>
                         </Col>
                         <Col>
                         <Nav className="me-auto">
-                            <Nav.Link href="#home">Home</Nav.Link>
+                            <Link to={`/`}>
+                                <Nav.Link href="#home">Home</Nav.Link>
+                            </Link>
                             <Nav.Link href="#features">About</Nav.Link>
                             <NavDropdown title="Category" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Accesories</NavDropdown.Item>
@@ -28,9 +33,11 @@ const NavBar = () => {
                                 <NavDropdown.Item href="#action/3.3">Guitar Amps</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.3">Bass Amps</NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">
-                                    All Categories
-                                </NavDropdown.Item>
+                                <Link to={`/productos`}>
+                                    <NavDropdown.Item href="#action/3.4">
+                                        All Categories
+                                    </NavDropdown.Item>
+                                </Link>
                             </NavDropdown>
                             <Nav.Link href="#pricing">Shop</Nav.Link>
                             <Nav.Link href="#cart" className="justify-content-end">
