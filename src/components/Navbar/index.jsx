@@ -22,24 +22,20 @@ const NavBar = () => {
                         </Col>
                         <Col>
                         <Nav className="me-auto">
-                            <Link to={`/`}>
-                                <Nav.Link href="#home">Home</Nav.Link>
-                            </Link>
-                            <Nav.Link href="#features">About</Nav.Link>
+                            
+                                <Nav.Link><Link to={`/`}>Home</Link></Nav.Link>
+                            
+                            <Nav.Link>About</Nav.Link>
                             <NavDropdown title="Category" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Accesories</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">PedalBoard</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Stomp Box</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Guitar Amps</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Bass Amps</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <Link to={`/productos`}>
-                                    <NavDropdown.Item href="#action/3.4">
-                                        All Categories
-                                    </NavDropdown.Item>
-                                </Link>
+                                
+                                <NavDropdown.Item><Link to={`/categoria/:idCategoria`}>Accesories</Link></NavDropdown.Item>
+                                <NavDropdown.Item><Link to={`/categoria/:idCategoria`}>PedalBoard</Link></NavDropdown.Item>
+                                <NavDropdown.Item><Link to={`/categoria/:idCategoria`}>Stomp Box</Link></NavDropdown.Item>
+                                <NavDropdown.Item><Link to={`/categoria/:idCategoria`}>Guitar Amps</Link></NavDropdown.Item>
+                                <NavDropdown.Item><Link to={`/categoria/:idCategoria`}>Bass Amps</Link></NavDropdown.Item>
+                                    <NavDropdown.Divider />
+                                    <NavDropdown.Item><Link to={`/productos`}>All Categories</Link></NavDropdown.Item>
                             </NavDropdown>
-                            <Nav.Link href="#pricing">Shop</Nav.Link>
                             <Nav.Link href="#cart" className="justify-content-end">
                                 <CartWidget />
                             </Nav.Link>

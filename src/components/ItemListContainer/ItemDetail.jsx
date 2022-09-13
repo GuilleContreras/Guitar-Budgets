@@ -19,31 +19,35 @@ const ItemDetail = ({ newproducto }) => {
         newproducto.map(producto => {
           return (
             <Container key={producto.id}>
+              <Row md={12}>
+                <Col>
+                  <Card border="light">
 
-              <Card style={{ width: '40rem' }}>
+                    <Card.Body className="modalText">
+                      <Card.Header>{producto.name}</Card.Header>
+                      <Row>
+                        <Col>
+                          <Card.Text className="m-3">
+                            {producto.description}
+                          </Card.Text>
 
-                <Card.Body className="modalText">
-                  <Card.Header>{producto.name}</Card.Header>
-                  <Row>
-                    <Col>
-                      <Card.Text className="m-3">
-                        {producto.description}
-                      </Card.Text>
-
-                    </Col>
-                    <Col>
-                      <Card.Img variant="top" src={articlesImg(`./${producto.image}`)} />
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col>
-                      <Card.Header className="m-3 cardTxt">Precio ${producto.price}</Card.Header>
-                    </Col>
-                  </Row>
-                  <ItemCount stock={10} initial={1} onAdd={onAdd} />
-                </Card.Body>
-              </Card>
+                        </Col>
+                        <Col>
+                          <Card.Img className="img-fluid" variant="top" src={articlesImg(`./${producto.image}`)} />
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col>
+                          <Card.Header className="m-3 cardTxt">Precio ${producto.price}</Card.Header>
+                        </Col>
+                      </Row>
+                      <ItemCount stock={10} initial={1} onAdd={onAdd} />
+                    </Card.Body>
+                  </Card>
+                </Col>
+              </Row>
             </Container>
+
           )
         })
       }

@@ -47,14 +47,14 @@ const ItemDetailContainer = ({id}) => {
     useEffect(() => {
       getProducts
       .then((data) => {
-        Number(data.find(p => p.id === idProducto));
-        setnewProducto(data);
+        const productoObtenido = Number(data.find(p => p.id === idProducto));
+        setnewProducto(productoObtenido);
       })
     }, [])
 
     return (
         <div>id
-            <ItemDetail id={idProducto} key={newproducto.id} newproducto={newproducto} name={newproducto.name} image={newproducto.image} price={newproducto.price} image2={newproducto.image2} image3={newproducto.image3}/>
+            <ItemDetail id={id} key={newproducto.id} newproducto={newproducto} name={newproducto.name} image={newproducto.image} price={newproducto.price} image2={newproducto.image2} image3={newproducto.image3}/>
         </div>
          )
     }
