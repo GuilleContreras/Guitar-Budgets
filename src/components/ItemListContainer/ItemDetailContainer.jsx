@@ -47,8 +47,8 @@ const ItemDetailContainer = ({id}) => {
     useEffect(() => {
       getProducts
       .then((data) => {
-        const productoObtenido = Number(data.find(p => p.id === idProducto));
-        setnewProducto(productoObtenido);
+        const product = data.find(p => p.id === Number(idProducto));
+        setnewProducto(product);
       })
     }, [])
 

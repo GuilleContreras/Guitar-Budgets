@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useParams } from "react"
 import ItemList from "./ItemList";
 
 
@@ -39,12 +39,24 @@ const getProducts =new Promise((res,rej) => {
 const ItemListContainer = () => {
 
     const [productos, setProductos] = useState([])
+    
+    const { categoryId } = useParams();
 
     useEffect(() => {
+
+    if(categoryId){
       getProducts
       .then((data) => {
-        setProductos(data)
+        const productsFiltered = data.filter((p) => p.category === categoryId)
+        setProductos(productsFiltered)
       })
+
+    }else{
+        getProducts
+        .then((data) => {
+          setProductos(data)
+    })
+    }
     }, [])
 
     return (
