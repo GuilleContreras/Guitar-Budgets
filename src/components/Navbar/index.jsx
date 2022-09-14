@@ -28,11 +28,11 @@ const NavBar = ({idCategoria}) => {
                             <Nav.Link>About</Nav.Link>
                             <NavDropdown title="Category" id="basic-nav-dropdown">
                                 
-                                <NavDropdown.Item><Link to={`/categoria/:idCategoria`}>Accesories</Link></NavDropdown.Item>
-                                <NavDropdown.Item><Link to={`/categoria/:idCategoria`}>PedalBoard</Link></NavDropdown.Item>
-                                <NavDropdown.Item><Link to={`/categoria/:idCategoria`}>Stomp Box</Link></NavDropdown.Item>
-                                <NavDropdown.Item><Link to={`/categoria/:idCategoria`}>Guitar Amps</Link></NavDropdown.Item>
-                                <NavDropdown.Item><Link to={`/categoria/:idCategoria`}>Bass Amps</Link></NavDropdown.Item>
+                                <NavDropdown.Item><Link to={`/categoria/Accessories`}>Accesories</Link></NavDropdown.Item>
+                                <NavDropdown.Item><Link to={`/categoria/Pedalboard`}>PedalBoard</Link></NavDropdown.Item>
+                                <NavDropdown.Item><Link to={`/categoria/Stompbox`}>Stomp Box</Link></NavDropdown.Item>
+                                <NavDropdown.Item><Link to={`/categoria/Guitar-Amps`}>Guitar Amps</Link></NavDropdown.Item>
+                                <NavDropdown.Item><Link to={`/categoria/Bass-Amps`}>Bass Amps</Link></NavDropdown.Item>
                                     <NavDropdown.Divider />
                                     <NavDropdown.Item><Link to={`/productos`}>All Categories</Link></NavDropdown.Item>
                             </NavDropdown>

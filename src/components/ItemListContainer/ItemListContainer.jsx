@@ -6,8 +6,8 @@ import CarouselHeader from "../Header/NavBarHeader";
 
 
 const productosMock = [
-    {"id":1, "name":"Earnie Ball Polish", "price":2272, "description": "Guitar Polish", "category": 1, "stock": 10, "image":"earnieball-polish.png"},
-    {"id":2, "name":"D`addario Guitar Strings", "price":3281, "description": "D`addario XL", "category": 1, "stock": 10, "image":"daddario-gtrstrings.png"},
+    {"id":1, "name":"Earnie Ball Polish", "price":2272, "description": "Guitar Polish", "category": "Accessories", "stock": 10, "image":"earnieball-polish.png"},
+    {"id":2, "name":"D`addario Guitar Strings", "price":3281, "description": "D`addario XL", "category": "Accessories", "stock": 10, "image":"daddario-gtrstrings.png"},
     {"id":3, "name":"Earnie Ball Bass Strings", "price":18759, "description": "Slinky Flatwound", "category": "Accessories", "stock": 10, "image":"earnieball-bassstrings.png"},
     {"id":4, "name":"D`addario Guitar Strings ", "price":5046, "description": "D`addario XYXL", "category": "Accessories", "stock": 10, "image":"daddario-gtrstrings2.png"},
     {"id":5, "name":"Tijuana Strap", "price":1191, "description": "Silver Strap", "category": "Accessories", "stock": 10, "image":"strap1.png"},
@@ -25,12 +25,12 @@ const productosMock = [
     {"id":17, "name":"Electroharmonix BigMuff", "price":44011, "description": "Big Muff Germanium", "category": "Stompbox", "stock": 10, "image":"bigmuff.png"},
     {"id":18, "name":"Marshall Reflector", "price":48331, "description": "Marshall Rf-1 Reverb", "category": "Stompbox", "stock": 10, "image":"marshall-reflector.png"},
     {"id":19, "name":"Nux Loop Core", "price":38578, "description": "Nux Loop Core Pedal", "category": "Stompbox", "stock": 10, "image":"nux-loopcore.png"},
-    {"id":20, "name":"Vox Ac15vr", "price":227054, "description": "Vox Ac15vr amp", "category": "Guitar Amps", "stock": 10, "image":"vox-amp.png"},
-    {"id":21, "name":"Orange Tiny Terror", "price":222301, "description": "Orange Tiny Terror Amp", "category": "Guitar Amps", "stock": 10, "image":"orange-amp.png"},
-    {"id":22, "name":"Blackstar HTV-112", "price":112488, "description": "Blackstar HTV-112 Amp", "category": "Guitar Amps", "stock": 10, "image":"blackstar-amp.png"},
-    {"id":23, "name":"Ashdown Five-15 Amp", "price":169050, "description": "Ashdown Five-15 Mini Rig", "category": "Bass Amps", "stock": 10, "image":"ashdown-amp.png"},
-    {"id":24, "name":"Marshall Mb15 Amp", "price":88194, "description": "Marshall Mb15 Combo", "category": "Bass Amps", "stock": 10, "image":"marshall-mb15.png"},
-    {"id":25, "name":"Hartke HD50", "price":119504, "description": "Hartke HD50 Combo", "category": "Bass Amps", "stock": 10, "image":"hartke-amp.png"}
+    {"id":20, "name":"Vox Ac15vr", "price":227054, "description": "Vox Ac15vr amp", "category": "Guitar-Amps", "stock": 10, "image":"vox-amp.png"},
+    {"id":21, "name":"Orange Tiny Terror", "price":222301, "description": "Orange Tiny Terror Amp", "category": "Guitar-Amps", "stock": 10, "image":"orange-amp.png"},
+    {"id":22, "name":"Blackstar HTV-112", "price":112488, "description": "Blackstar HTV-112 Amp", "category": "Guitar-Amps", "stock": 10, "image":"blackstar-amp.png"},
+    {"id":23, "name":"Ashdown Five-15 Amp", "price":169050, "description": "Ashdown Five-15 Mini Rig", "category": "Bass-Amps", "stock": 10, "image":"ashdown-amp.png"},
+    {"id":24, "name":"Marshall Mb15 Amp", "price":88194, "description": "Marshall Mb15 Combo", "category": "Bass-Amps", "stock": 10, "image":"marshall-mb15.png"},
+    {"id":25, "name":"Hartke HD50", "price":119504, "description": "Hartke HD50 Combo", "category": "Bass-Amps", "stock": 10, "image":"hartke-amp.png"}
 ];
 
 const getProducts =new Promise((res,rej) => {
@@ -50,7 +50,7 @@ const ItemListContainer = () => {
     if(idCategoria){
         getProducts
         .then((data) => {
-        const productsFiltered = data.filter(p => p.category === Number(idCategoria));
+        const productsFiltered = data.filter(p => p.category === idCategoria);
         setProductos(productsFiltered)
     })} else{
         getProducts
