@@ -1,10 +1,13 @@
-import { useState, useEffect, useParams } from "react"
+import { useState, useEffect } from "react"
 import ItemList from "./ItemList";
+import { useParams } from "react-router-dom";
+import NavBar from "../Navbar";
+import CarouselHeader from "../Header/NavBarHeader";
 
 
 const productosMock = [
-    {"id":1, "name":"Earnie Ball Polish", "price":2272, "description": "Guitar Polish", "category": "Accessories", "stock": 10, "image":"earnieball-polish.png"},
-    {"id":2, "name":"D`addario Guitar Strings", "price":3281, "description": "D`addario XL", "category": "Accessories", "stock": 10, "image":"daddario-gtrstrings.png"},
+    {"id":1, "name":"Earnie Ball Polish", "price":2272, "description": "Guitar Polish", "category": 1, "stock": 10, "image":"earnieball-polish.png"},
+    {"id":2, "name":"D`addario Guitar Strings", "price":3281, "description": "D`addario XL", "category": 1, "stock": 10, "image":"daddario-gtrstrings.png"},
     {"id":3, "name":"Earnie Ball Bass Strings", "price":18759, "description": "Slinky Flatwound", "category": "Accessories", "stock": 10, "image":"earnieball-bassstrings.png"},
     {"id":4, "name":"D`addario Guitar Strings ", "price":5046, "description": "D`addario XYXL", "category": "Accessories", "stock": 10, "image":"daddario-gtrstrings2.png"},
     {"id":5, "name":"Tijuana Strap", "price":1191, "description": "Silver Strap", "category": "Accessories", "stock": 10, "image":"strap1.png"},
@@ -39,20 +42,28 @@ const getProducts =new Promise((res,rej) => {
 const ItemListContainer = () => {
 
     const [productos, setProductos] = useState([])
-    
-    // const { categoryId } = useParams();
+    console.log(productos);
+    const { idCategoria } = useParams();
 
     useEffect(() => {
 
-
+    if(idCategoria){
         getProducts
         .then((data) => {
-          setProductos(data)
-    })
-    }, [])
+        const productsFiltered = data.filter(p => p.category === Number(idCategoria));
+        setProductos(productsFiltered)
+    })} else{
+        getProducts
+        .then((data) =>{
+            setProductos(data);
+        })
+    }
+    }, [idCategoria])
 
     return (
         <div>
+            <NavBar />
+            <CarouselHeader idCategoria={idCategoria}/>
             <ItemList productos={productos} />
         </div>
          )

@@ -24,7 +24,7 @@ const ItemDetail = ({ newproducto }) => {
 
     <div>
       {
-        newproducto.map(producto => {
+        newproducto?.map(producto => {
           return (
             <Container key={producto.id}>
               <Row md={12}>

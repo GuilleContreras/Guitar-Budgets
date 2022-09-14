@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/Col';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
 
-const NavBar = () => {
+const NavBar = ({idCategoria}) => {
     return (
 
         <Navbar bg="light" variant="light" className="navbar">
