@@ -40,21 +40,22 @@ const ItemDetailContainer = ({id}) => {
 
     const [newproducto, setnewProducto] = useState([])
 
-    const { idProducto } = useParams();
+    // const { idProducto } = useParams();
 
-    console.log(idProducto);
+
 
     useEffect(() => {
       getProducts
       .then((data) => {
-        const product = data.find(p => p.id === Number(idProducto));
-        setnewProducto(product);
+        // const product = data.find(p => p.id === Number(idProducto));
+        // setnewProducto(product);
+        setnewProducto(data);
       })
     }, [])
 
     return (
         <div>id
-            <ItemDetail id={id} key={newproducto.id} newproducto={newproducto} name={newproducto.name} image={newproducto.image} price={newproducto.price} image2={newproducto.image2} image3={newproducto.image3}/>
+            <ItemDetail newproducto={newproducto}/>
         </div>
          )
     }

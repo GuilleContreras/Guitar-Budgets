@@ -4,14 +4,22 @@ import Col from 'react-bootstrap/Col';
 import '../ItemListContainer/itemdetail.css';
 import Container from 'react-bootstrap/Container';
 import ItemCount from '../ItemCount/ItemCount';
+import { useState } from 'react';
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const articlesImg = require.context(`../assets/articles`, true)
 
-const onAdd = (quantity) => {
-  (console.log(`Compro: ${quantity} Items`))
-};
 
 const ItemDetail = ({ newproducto }) => {
+
+  const [cantidadCompra, setcantidadCompra] = useState(0);
+
+  const onAdd = (quantityToAdd) => {
+    return <Button variant="primary"><Link to={`/cart`}>Finalizar Compra</Link></Button>
+  };
+  
+
   return (
 
     <div>
@@ -41,7 +49,7 @@ const ItemDetail = ({ newproducto }) => {
                           <Card.Header className="m-3 cardTxt">Precio ${producto.price}</Card.Header>
                         </Col>
                       </Row>
-                      <ItemCount stock={10} initial={1} onAdd={onAdd} />
+                      <ItemCount stock={10} onAdd={onAdd} setcantidadCompra={setcantidadCompra} cantidadCompra={cantidadCompra}/>
                     </Card.Body>
                   </Card>
                 </Col>

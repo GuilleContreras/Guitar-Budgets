@@ -40,23 +40,15 @@ const ItemListContainer = () => {
 
     const [productos, setProductos] = useState([])
     
-    const { categoryId } = useParams();
+    // const { categoryId } = useParams();
 
     useEffect(() => {
 
-    if(categoryId){
-      getProducts
-      .then((data) => {
-        const productsFiltered = data.filter((p) => p.category === categoryId)
-        setProductos(productsFiltered)
-      })
 
-    }else{
         getProducts
         .then((data) => {
           setProductos(data)
     })
-    }
     }, [])
 
     return (
