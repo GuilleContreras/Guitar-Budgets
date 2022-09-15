@@ -1,20 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-.modalText{
-    font-family: 'Bebas Neue';
-}
-
-.cardTxt{
-    font-size: 25px;
-    padding: 40px;
-    text-align: center;
-}
-
-.detailImg{
-    width: 300px;
-}
-
-.detailTitle{
+.itemTitle{
     font-family: 'Bebas Neue';
     color: white;
     margin-top: 15px;
