@@ -44,6 +44,7 @@ const ItemCount = ({ stock, setcantidadCompra, cantidadCompra, quantityToAdd }) 
                         <Button variant="primary" onClick={() => { setbtnPress(true) }}>Agregar al Carrito</Button>{' '}
                     </Col>
                 </Row>
+                
             </Container>
         )
     } else {

@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom";
-import ItemDetail from "./ItemDetail";
+import React, { useState, useEffect } from 'react';
 
-const newMock = [
+const cartMock = [
     { "id": 1, "name": "Earnie Ball Polish", "price": 2272, "description": "Guitar Polish", "category": "Accessories", "stock": 10, "image": "earnieball-polish.png" },
     { "id": 2, "name": "D`addario Guitar Strings", "price": 3281, "description": "D`addario XL", "category": "Accessories", "stock": 10, "image": "daddario-gtrstrings.png" },
     { "id": 3, "name": "Earnie Ball Bass Strings", "price": 18759, "description": "Slinky Flatwound", "category": "Accessories", "stock": 10, "image": "earnieball-bassstrings.png" },
@@ -30,30 +28,60 @@ const newMock = [
     { "id": 25, "name": "Hartke HD50", "price": 119504, "description": "Hartke HD50 Combo", "category": "Bass Amps", "stock": 10, "image": "hartke-amp.png" }
 ];
 
+
 const getProducts = new Promise((res, rej) => {
     setTimeout(() => {
-        res(newMock)
-    }, 2000);
+        res(cartMock)
+    }, 1);
 })
 
-const ItemDetailContainer = ({ id }) => {
+const CartContext = React.createContext();
 
-    const [newproducto, setnewProducto] = useState([])
-    const { idProducto } = useParams();
+const CartProvider = ({children}) => {
 
+    const [allProducts, setallProducts] = useState([])
+    
     useEffect(() => {
         getProducts
             .then((data) => {
-                const product = data.find(p => p.id === Number(idProducto));
-                setnewProducto([product]);
+                setallProducts(data);
             })
-    }, [idProducto])
+    }, [])
+
+
+    const [cart, setCart] = useState([]);
+    const [item, setItem] = useState({});
+    const [quantityAdded, setQuantityAdded]= useState(0);
+    const [itemId, setItemId] = useState(0);
+
+
+    const addItem = (item, quantityAdded) =>{
+        setCart(item);
+        setQuantityAdded(quantityAdded);
+    }
+
+    const removeItem = (itemId) =>{
+        const product = allProducts.findIndex(p => p.id === 1)
+        console.log(product);
+        
+
+    }
+
+    const clear = () => {
+        setCart([]);
+    }
+
+    const isInCart = (id) => {
+        // const product = data.find(p => p.id === id);
+
+    }
 
     return (
-        <div>
-            <ItemDetail newproducto={newproducto} />
-        </div>
+        <CartContext.Provider value={{addItem, removeItem, clear, isInCart}}>
+            {children}
+        </CartContext.Provider>
     )
+
 }
 
-export default ItemDetailContainer;
+export {CartProvider, CartContext}

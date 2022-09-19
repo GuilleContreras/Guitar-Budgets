@@ -42,7 +42,6 @@ const getProducts =new Promise((res,rej) => {
 const ItemListContainer = () => {
 
     const [productos, setProductos] = useState([])
-    console.log(productos);
     const { idCategoria } = useParams();
 
     useEffect(() => {
