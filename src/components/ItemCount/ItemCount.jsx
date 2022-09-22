@@ -3,20 +3,23 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { CartContext } from '../../context/CartContext';
+import { useContext, useState } from 'react';
 
-const ItemCount = ({ stock, setcantidadCompra, cantidadCompra, quantityToAdd }) => {
+const ItemCount = ({ stock, producto }) => {
 
     const [btnPress, setbtnPress] = useState(false);
+    const [cantidadCompra, setcantidadCompra] = useState(0);
+    const quantity = cantidadCompra;
+  
+    const {addItem, cart } = useContext(CartContext);
+  
+    const onAdd = (quantity) => {
+      addItem(producto, quantity)
+      console.log(cart);
+    }
 
-    const onAdd = () => {
-        return (
-            <Container>
-                <p>Se agregarán {quantityToAdd} items al carrito</p>
-                <Link to={`/cart`}><Button variant="primary" className="btnText">Finalizar Compra</Button></Link>
-            </Container>
-        )
-    };
+    const onAddButtonHandler = onAdd();
 
     const addNumber = () => {
         if (cantidadCompra < stock) {
@@ -36,7 +39,7 @@ const ItemCount = ({ stock, setcantidadCompra, cantidadCompra, quantityToAdd }) 
             <Container fluid>
                 <Row className="justify-content-center">
                     <Col xs lg="2"><Button variant="primary" className="p-1" onClick={restNumber}>-</Button>{' '}</Col>
-                    <Col xs="2"><h3 className="p-3">{quantityToAdd}</h3></Col>
+                    <Col xs="2"><h3 className="p-3">{quantity}</h3></Col>
                     <Col xs lg="2"><Button variant="primary" className="p-1" onClick={addNumber}>+</Button>{' '}</Col>
                 </Row>
                 <Row className="p-1">
@@ -49,7 +52,12 @@ const ItemCount = ({ stock, setcantidadCompra, cantidadCompra, quantityToAdd }) 
         )
     } else {
         return (
-            onAdd()
+            (
+                <Container>
+                    <p>Se agregarán {quantity} items al carrito</p>
+                    <Link to={`/cart`}><Button variant="primary" className="btnText" onClick={onAddButtonHandler}>Finalizar Compra</Button></Link>
+                </Container>
+            )
         )
     }
 };

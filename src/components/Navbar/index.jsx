@@ -17,7 +17,7 @@ const NavBar = ({idCategoria}) => {
                     <Row>
                         <Col>
                         <Link to={`/`}>
-                            <Navbar.Brand href="#home" className='logoFont'>Guitar Budgets</Navbar.Brand>
+                            <Navbar.Brand className='logoFont'>Guitar Budgets</Navbar.Brand>
                         </Link>
                         </Col>
                         <Col>
@@ -36,7 +36,7 @@ const NavBar = ({idCategoria}) => {
                                     <NavDropdown.Divider />
                                     <NavDropdown.Item><Link to={`/productos`}>All Categories</Link></NavDropdown.Item>
                             </NavDropdown>
-                            <Nav.Link href="#cart" className="justify-content-end">
+                            <Nav.Link className="justify-content-end">
                                 <CartWidget />
                             </Nav.Link>
                         </Nav>

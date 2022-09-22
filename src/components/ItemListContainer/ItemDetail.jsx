@@ -4,16 +4,14 @@ import Col from 'react-bootstrap/Col';
 import '../ItemListContainer/itemdetail.css';
 import Container from 'react-bootstrap/Container';
 import ItemCount from '../ItemCount/ItemCount';
-import { useState } from 'react';
 import NavBar from '../Navbar';
+
 
 const articlesImg = require.context(`../assets/articles`, true)
 
 
 const ItemDetail = ({ newproducto }) => {
 
-  const [cantidadCompra, setcantidadCompra] = useState(0);
-  const quantityToAdd = cantidadCompra;
 
   return (
     
@@ -46,7 +44,7 @@ const ItemDetail = ({ newproducto }) => {
                           <Card.Header className="m-3 cardTxt">Precio ${producto.price}</Card.Header>
                         </Col>
                       </Row>
-                      <ItemCount stock={10}  setcantidadCompra={setcantidadCompra} cantidadCompra={cantidadCompra} quantityToAdd={quantityToAdd}/>
+                      <ItemCount stock={10} producto={producto}/>
                     </Card.Body>
                   </Card>
                 </Col>
