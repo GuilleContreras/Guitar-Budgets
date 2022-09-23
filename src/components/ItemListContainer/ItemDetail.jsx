@@ -44,14 +44,15 @@ const ItemDetail = ({ newproducto }) => {
                           <Card.Header className="m-3 cardTxt">Precio ${producto.price}</Card.Header>
                         </Col>
                       </Row>
-                      <ItemCount stock={10} producto={producto}/>
+                      <ItemCount stock={10} producto={producto} newproducto={newproducto}/>
                     </Card.Body>
                   </Card>
                 </Col>
               </Row>
             </Container>
-
+            
           )
+          
         })
       }
     </div>

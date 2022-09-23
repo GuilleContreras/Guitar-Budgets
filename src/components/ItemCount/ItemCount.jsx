@@ -6,21 +6,26 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 import { useContext, useState } from 'react';
 
-const ItemCount = ({ stock, producto }) => {
+const ItemCount = ({ stock, producto, newproducto }) => {
 
     const [btnPress, setbtnPress] = useState(false);
     const [cantidadCompra, setcantidadCompra] = useState(0);
     const quantity = cantidadCompra;
   
-    const {addItem, cart } = useContext(CartContext);
-  
-    const onAdd = (quantity) => {
-      addItem(producto, quantity)
-      console.log(cart);
+    const {addItem, cart, clear, removeItem } = useContext(CartContext);
+  console.log(cart)
+    const onAddButtonHandler = () => {
+      addItem(newproducto, quantity)
+      setbtnPress(true)
+        console.log(cart);
     }
-
-    const onAddButtonHandler = onAdd();
-
+    const onClear = () => {
+        clear()
+        console.log(cart);
+    }
+    const removeItemHandler = () => {
+        removeItem(...cart.id)
+    }
     const addNumber = () => {
         if (cantidadCompra < stock) {
             setcantidadCompra(cantidadCompra + 1);
@@ -44,7 +49,9 @@ const ItemCount = ({ stock, producto }) => {
                 </Row>
                 <Row className="p-1">
                     <Col>
-                        <Button variant="primary" onClick={() => { setbtnPress(true) }}>Agregar al Carrito</Button>{' '}
+                        <Button variant="primary" onClick={()=> onAddButtonHandler(newproducto,quantity)} >Agregar al Carrito</Button>{' '}
+                        <Button variant="primary" onClick={()=> onClear()} >Vaciar Carrito</Button>{' '}
+                        <Button variant="primary" onClick={()=> onClear()} >Remover Item</Button>{' '}
                     </Col>
                 </Row>
                 
@@ -55,7 +62,7 @@ const ItemCount = ({ stock, producto }) => {
             (
                 <Container>
                     <p>Se agregarán {quantity} items al carrito</p>
-                    <Link to={`/cart`}><Button variant="primary" className="btnText" onClick={onAddButtonHandler}>Finalizar Compra</Button></Link>
+                    <Link to={`/cart`}><Button variant="primary" className="btnText" onClick={()=> console.log(cart)}>Finalizar Compra</Button></Link>
                 </Container>
             )
         )
