@@ -15,7 +15,7 @@ const ItemCount = ({ stock, producto, newproducto }) => {
     const {addItem, cart, clear, removeItem } = useContext(CartContext);
   console.log(cart)
     const onAddButtonHandler = () => {
-      addItem(newproducto, quantity)
+      addItem(producto, quantity)
       setbtnPress(true)
         console.log(cart);
     }
