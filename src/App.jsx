@@ -12,7 +12,6 @@ function App() {
   return (
     <div className="App" bgcolor="black">
         <CartProvider>
-          <CartItem />
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<ItemListContainer />} />

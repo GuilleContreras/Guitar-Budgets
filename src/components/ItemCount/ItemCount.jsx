@@ -6,22 +6,22 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 import { useContext, useState } from 'react';
 
-const ItemCount = ({ stock, producto, newproducto }) => {
+const ItemCount = ({ stock, producto }) => {
 
     const [btnPress, setbtnPress] = useState(false);
     const [cantidadCompra, setcantidadCompra] = useState(0);
     const quantity = cantidadCompra;
   
     const {addItem, cart, clear, removeItem } = useContext(CartContext);
-  console.log(cart)
+
     const onAddButtonHandler = () => {
       addItem(producto, quantity)
       setbtnPress(true)
-        console.log(cart);
+
     }
     const onClear = () => {
         clear()
-        console.log(cart);
+
     }
     const removeItemHandler = () => {
         removeItem(...cart.id)
@@ -49,7 +49,7 @@ const ItemCount = ({ stock, producto, newproducto }) => {
                 </Row>
                 <Row className="p-1">
                     <Col>
-                        <Button variant="primary" onClick={()=> onAddButtonHandler(newproducto,quantity)} >Agregar al Carrito</Button>{' '}
+                        <Button variant="primary" onClick={()=> onAddButtonHandler(producto,quantity)} >Agregar al Carrito</Button>{' '}
                         <Button variant="primary" onClick={()=> onClear()} >Vaciar Carrito</Button>{' '}
                         <Button variant="primary" onClick={()=> onClear()} >Remover Item</Button>{' '}
                     </Col>

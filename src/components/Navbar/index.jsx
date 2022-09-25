@@ -37,7 +37,7 @@ const NavBar = ({idCategoria}) => {
                                     <NavDropdown.Item><Link to={`/productos`}>All Categories</Link></NavDropdown.Item>
                             </NavDropdown>
                             <Nav.Link className="justify-content-end">
-                                <CartWidget />
+                            <Link to={`/cart`}><CartWidget /></Link>
                             </Nav.Link>
                         </Nav>
                         </Col>

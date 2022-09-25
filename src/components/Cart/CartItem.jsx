@@ -14,35 +14,39 @@ const articlesImg = require.context(`../assets/articles`, true)
 
 
 const CartItem = () => {
-    const {removeItem} = useContext(CartContext);
-
+    const {removeItem, cart} = useContext(CartContext);
+    console.log(cart);
     const removeItemButtonHandler = () =>{
       removeItem();
     }
   
 
-  return ( 
-    <Container fluid className='p-2'>
+  return (
+    <div> 
+    {cart.map(producto => {
+        return (
+            <Container fluid className='p-2' key={producto.item.id}>
         <Card className='cartCard'>
             <Row>
                 <Col >
-                    <Card.Title>Product Name</Card.Title>
-                    <Card.Title className="text-center mt-5 mb-4">Card Title</Card.Title>
+                    <Card.Title>Producto</Card.Title>
+                    <Card.Title className="text-center mt-5 mb-4">{producto.item.name}</Card.Title>
                 </Col>
                 <Col>
                     <Card.Title>Description</Card.Title>
                     <Card.Text className="text-center mt-4 mb-4">
-                    Some quick example text to build on the card title and make up the
-                    bulk of the card's content.
+                    {producto.item.description}
                     </Card.Text>
                 </Col>
                 <Col>
                     <Card.Title>Image</Card.Title>
-                    <img className="cartItemImg" variant="top" src={articlesImg(`./bigmuff.png`)}></img>
+                    <img className="img-fluid detailImg" alt="imgDetail" variant="top" src={articlesImg(`./${producto.item.image}`)} />
                 </Col>
                 <Col>
-                    <Card.Title>Quantity</Card.Title>
-                    
+                    <Card.Title>Cantidad</Card.Title>
+                    <Card.Text className="text-center mt-4 mb-4">
+                    {producto.quantity}
+                    </Card.Text>
                 </Col>
                 <Col>
                     <Card.Title>Erase item</Card.Title>
@@ -52,8 +56,11 @@ const CartItem = () => {
             
         </Card>
     </Container>
-  )    
-
+        )
+    })
+    }
+    </div>
+  );    
 }
 
 export default CartItem;
