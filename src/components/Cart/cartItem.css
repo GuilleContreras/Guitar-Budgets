@@ -1,7 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 .cartCard{
     padding: 15px;
 }
 
 .cartItemImg{
     width: 100px;
+}
+
+.cartItemH1{
+    font-family: 'Bebas Neue';
+    color: white;
+    margin-top: 15px;
+    font-size: 30px;
+    padding: 20px;
+}
+.cartItemH2{
+    font-family: 'Bebas Neue';
+    color: white;
+    margin-top: 15px;
+    font-size: 25px;
+    padding: 20px;
+}
+
+.btnText{
+    font-family: 'Bebas Neue';
+    font-size: 25px;
+    
 }
