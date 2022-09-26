@@ -12,20 +12,13 @@ const ItemCount = ({ stock, producto }) => {
     const [cantidadCompra, setcantidadCompra] = useState(0);
     const quantity = cantidadCompra;
   
-    const {addItem, cart, clear, removeItem } = useContext(CartContext);
+    const { addItem } = useContext(CartContext);
 
     const onAddButtonHandler = () => {
       addItem(producto, quantity)
       setbtnPress(true)
+    }
 
-    }
-    const onClear = () => {
-        clear()
-
-    }
-    const removeItemHandler = () => {
-        removeItem(...cart.id)
-    }
     const addNumber = () => {
         if (cantidadCompra < stock) {
             setcantidadCompra(cantidadCompra + 1);
@@ -50,8 +43,6 @@ const ItemCount = ({ stock, producto }) => {
                 <Row className="p-1">
                     <Col>
                         <Button variant="primary" onClick={()=> onAddButtonHandler(producto,quantity)} >Agregar al Carrito</Button>{' '}
-                        <Button variant="primary" onClick={()=> onClear()} >Vaciar Carrito</Button>{' '}
-                        <Button variant="primary" onClick={()=> onClear()} >Remover Item</Button>{' '}
                     </Col>
                 </Row>
                 
@@ -62,7 +53,8 @@ const ItemCount = ({ stock, producto }) => {
             (
                 <Container>
                     <p>Se agregarán {quantity} items al carrito</p>
-                    <Link to={`/cart`}><Button variant="primary" className="btnText" onClick={()=> console.log(cart)}>Finalizar Compra</Button></Link>
+                    <Link to={`/cart`}><Button variant="primary" className="btnText m-2">Finalizar Compra</Button></Link>
+                    <Link to={`/productos`}><Button variant="primary" className="btnText m-2">Seguir Comprando</Button></Link>
                 </Container>
             )
         )

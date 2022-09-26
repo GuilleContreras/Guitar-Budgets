@@ -13,9 +13,9 @@ const CartProvider = ({ children }) => {
         let cartProduct = { item, quantity };
 
         if (isInCart(item)) {
-            cartProduct = cart.find(p => p.id === item.id)
+            cartProduct = cart.find(p => p.item.id === item.id)
             cartProduct.quantity = cartProduct.quantity + quantity;
-            cartProductAux = [...cart, cartProduct];
+            cartProductAux = [...cart];
         } else {
             cartProductAux = [...cart, cartProduct];
         }
@@ -24,6 +24,7 @@ const CartProvider = ({ children }) => {
 
     const removeItem = (id) => {
         cartProductAux = cart.filter(p => p.item.id !== id);
+        console.log(cartProductAux)
         setCart(cartProductAux)
     }
 
@@ -32,7 +33,7 @@ const CartProvider = ({ children }) => {
     }
 
     const isInCart = (item) => {
-        const result = cart.some(p => p.id === item.id);
+        const result = cart.some(p => p.item.id === item.id);
         return result;
 
     }

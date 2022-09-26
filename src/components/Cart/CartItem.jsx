@@ -3,9 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import '../ItemListContainer/itemdetail.css';
 import Container from 'react-bootstrap/Container';
-import ItemCount from '../ItemCount/ItemCount';
-import { useContext, useState } from 'react';
-import NavBar from '../Navbar';
+import { useContext } from 'react';
 import { Button } from 'react-bootstrap';
 import '../Cart/cartItem.css';
 import { CartContext } from '../../context/CartContext';
@@ -15,9 +13,9 @@ const articlesImg = require.context(`../assets/articles`, true)
 
 const CartItem = () => {
     const {removeItem, cart} = useContext(CartContext);
-    console.log(cart);
-    const removeItemButtonHandler = () =>{
-      removeItem();
+    
+    const removeItemButtonHandler = (item) =>{
+      removeItem(item);
     }
   
 
@@ -50,7 +48,7 @@ const CartItem = () => {
                 </Col>
                 <Col>
                     <Card.Title>Erase item</Card.Title>
-                    <Button variant="light" className="text-center mt-4 mb-4" onClick={removeItemButtonHandler}><img src="boton-x.png" alt="" /></Button>
+                    <Button variant="light" className="text-center mt-4 mb-4" onClick={() => removeItemButtonHandler(producto.item.id)}><img src="boton-x.png" alt="" /></Button>
                 </Col>
             </Row>
             
