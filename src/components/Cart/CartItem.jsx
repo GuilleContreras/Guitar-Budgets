@@ -8,6 +8,7 @@ import { Button } from 'react-bootstrap';
 import '../Cart/cartItem.css';
 import { CartContext } from '../../context/CartContext';
 import { Link } from 'react-router-dom';
+import CartResume from './CartResume';
 
 const articlesImg = require.context(`../assets/articles`, true)
 
@@ -18,8 +19,6 @@ const CartItem = () => {
     const removeItemButtonHandler = (item) =>{
       removeItem(item);
     }
-console.log(cart)
-console.log(cart.length)
 
     if(cart.length === 0){
 
@@ -41,7 +40,7 @@ console.log(cart.length)
                     <Row>
                         <Col >
                             <Card.Title>Producto</Card.Title>
-                            <Card.Title className="text-center mt-5 mb-4">{producto.item.name}</Card.Title>
+                            <Card.Text className="text-center mt-4 mb-4">{producto.item.name}</Card.Text>
                         </Col>
                         <Col>
                             <Card.Title>Description</Card.Title>
@@ -60,12 +59,18 @@ console.log(cart.length)
                             </Card.Text>
                         </Col>
                         <Col>
+                            <Card.Title>Precio Unitario</Card.Title>
+                            <Card.Text className="text-center mt-4 mb-4">
+                            ${producto.item.price}
+                            </Card.Text>
+                        </Col>
+                        <Col>
                             <Card.Title>Erase item</Card.Title>
                             <Button variant="light" className="text-center mt-4 mb-4" onClick={() => removeItemButtonHandler(producto.item.id)}><img src="boton-x.png" alt="" /></Button>
                         </Col>
                     </Row>
-                    
                 </Card>
+                <CartResume />
             </Container>
                 )
             })
