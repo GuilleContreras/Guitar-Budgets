@@ -1,11 +1,23 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
+import { getFirestore, doc, getDocs, collection } from 'firebase/firestore'
 const CartContext = React.createContext();
 
 const CartProvider = ({ children }) => {
 
     const [cart, setCart] = useState([]);
     const { total, setTotal } = useState(0);
+    const [products, getProducts] = useState([]);
+
+    useEffect(() =>{
+        const db = getFirestore();
+        const productsRef = collection(db, "products");
+        getDocs(productsRef).then((snapshot) => {
+            console.log(snapshot);
+        })
+
+    }, []);
+
+
 
     let cartProductAux = [];
     const addItem = (item, quantity) => {

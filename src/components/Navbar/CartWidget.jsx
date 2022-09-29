@@ -7,10 +7,8 @@ import { CartContext } from '../../context/CartContext';
 
 const CartWidget = () =>{
     const {cart} = useContext(CartContext)
-    console.log(cart);
 
     const sumallProducts = cart.map(p => p.quantity).reduce((prev, curr) => prev + curr, 0);
-    console.log(sumallProducts)
 
     if(cart.length !== 0){
         return ( 
