@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { getFirestore, doc, getDocs, collection } from 'firebase/firestore'
+import { getFirestore, getDocs, collection } from 'firebase/firestore'
 const CartContext = React.createContext();
 
 const CartProvider = ({ children }) => {
 
     const [cart, setCart] = useState([]);
     const { total, setTotal } = useState(0);
-    const [products, getProducts] = useState([]);
+    const [products, setProducts] = useState([]);
 
     useEffect(() =>{
         const db = getFirestore();
         const productsRef = collection(db, "products");
         getDocs(productsRef).then((snapshot) => {
-            console.log(snapshot);
-        })
+            setProducts(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+        });
 
     }, []);
-
 
 
     let cartProductAux = [];
@@ -36,7 +35,6 @@ const CartProvider = ({ children }) => {
 
     const removeItem = (id) => {
         cartProductAux = cart.filter(p => p.item.id !== id);
-        console.log(cartProductAux)
         setCart(cartProductAux)
     }
 
@@ -51,7 +49,7 @@ const CartProvider = ({ children }) => {
     }
 
     return (
-        <CartContext.Provider value={{ addItem, removeItem, clear, cart, setCart }}>
+        <CartContext.Provider value={{ addItem, removeItem, clear, cart, setCart, products }}>
             {children}
         </CartContext.Provider>
     )

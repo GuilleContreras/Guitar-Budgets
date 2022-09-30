@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
+import { CartContext } from '../../context/CartContext';
 
 const newMock = [
     { "id": 1, "name": "Earnie Ball Polish", "price": 2272, "description": "Guitar Polish", "category": "Accessories", "stock": 10, "image": "earnieball-polish.png" },
@@ -30,18 +31,21 @@ const newMock = [
     { "id": 25, "name": "Hartke HD50", "price": 119504, "description": "Hartke HD50 Combo", "category": "Bass Amps", "stock": 10, "image": "hartke-amp.png" }
 ];
 
-const getProducts = new Promise((res, rej) => {
-    setTimeout(() => {
-        res(newMock)
-    }, 2000);
-})
 
 const ItemDetailContainer = ({ id }) => {
 
     const [newproducto, setnewProducto] = useState([])
     const { idProducto } = useParams();
+    const { products} = useContext(CartContext);
+
 
     useEffect(() => {
+        const getProducts = new Promise((res, rej) => {
+            setTimeout(() => {
+                res(products)
+            }, 0);
+        })
+
         getProducts
             .then((data) => {
                 const product = data.find(p => p.id === Number(idProducto));

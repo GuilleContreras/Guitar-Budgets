@@ -1,7 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import '../ItemListContainer/itemdetail.css';
 import Container from 'react-bootstrap/Container';
 import { useContext } from 'react';
 import { Button } from 'react-bootstrap';
@@ -50,7 +49,7 @@ const CartItem = () => {
                         </Col>
                         <Col>
                             <Card.Title>Image</Card.Title>
-                            <img className="img-fluid detailImg" alt="imgDetail" variant="top" src={articlesImg(`./${producto.item.image}`)} />
+                            <img className="img-fluid detailImgCart" alt="imgDetail" variant="top" src={articlesImg(`./${producto.item.image}`)} />
                         </Col>
                         <Col>
                             <Card.Title>Cantidad</Card.Title>
