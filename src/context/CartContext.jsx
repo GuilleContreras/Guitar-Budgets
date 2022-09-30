@@ -5,7 +5,6 @@ const CartContext = React.createContext();
 const CartProvider = ({ children }) => {
 
     const [cart, setCart] = useState([]);
-    const { total, setTotal } = useState(0);
     const [products, setProducts] = useState([]);
 
     useEffect(() =>{
