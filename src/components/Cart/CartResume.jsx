@@ -6,9 +6,9 @@ import Col from 'react-bootstrap/Col';
 import { Button, Container } from 'react-bootstrap';
 
 const CartResume = () =>{
-    const {cart, sendOrder} = useContext(CartContext)
+    const { cart, total, setTotal } = useContext(CartContext)
 
-    const sumallPrices = cart.map(p => (p.item.price)*(p.quantity)).reduce((prev, curr) => prev + curr, 0);
+    const sumallPrices = setTotal(cart.map(p => (p.item.price)*(p.quantity)).reduce((prev, curr) => prev + curr, 0));
     const sumallProducts = cart.map(p => p.quantity).reduce((prev, curr) => prev + curr, 0);
 
     return (
@@ -21,8 +21,8 @@ const CartResume = () =>{
                         </Col>
                         <Col>
                             <Card.Title>Total de la Compra</Card.Title>
-                            <Card.Title className="text-center mt-5 mb-4">${sumallPrices}</Card.Title>
-                            <Button onClick={() => sendOrder()}>Enviar orden</Button>  
+                            <Card.Title className="text-center mt-5 mb-4">${total}</Card.Title>
+                            <Button>Enviar orden</Button>  
                         </Col>
                     </Row>   
                 </Card>

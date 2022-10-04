@@ -7,7 +7,6 @@ import { Button } from 'react-bootstrap';
 import '../Cart/cartItem.css';
 import { CartContext } from '../../context/CartContext';
 import { Link } from 'react-router-dom';
-import CartResume from './CartResume';
 
 const articlesImg = require.context(`../assets/articles`, true)
 
@@ -69,7 +68,6 @@ const CartItem = () => {
                         </Col>
                     </Row>
                 </Card>
-                <CartResume />
             </Container>
                 )
             })
