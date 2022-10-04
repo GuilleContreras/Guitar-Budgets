@@ -3,6 +3,11 @@
 .itemTitle{
     font-family: 'Bebas Neue';
     color: white;
-    margin-top: 15px;
-    font-size: 30px;
+    margin-top: 40px;
+    font-size: 40px;
+    padding: 30px;
+}
+
+.hrColor{
+    color: white;
 }

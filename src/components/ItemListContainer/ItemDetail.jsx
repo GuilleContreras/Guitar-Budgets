@@ -14,10 +14,15 @@ const ItemDetail = ({ newproducto }) => {
 
 
   return (
-    
+
     <div>
       <NavBar />
-      <h1 className='detailTitle'>Product Detail</h1>
+      <Container>
+        <Row>
+          <h1 className='detailTitle'>Product Detail</h1>
+          <hr className='hrDetail'></hr>
+        </Row>
+      </Container>
       {
         newproducto?.map(producto => {
           return (
@@ -44,15 +49,15 @@ const ItemDetail = ({ newproducto }) => {
                           <Card.Header className="m-3 cardTxt">Precio ${producto.price}</Card.Header>
                         </Col>
                       </Row>
-                      <ItemCount stock={10} producto={producto} newproducto={newproducto}/>
+                      <ItemCount stock={10} producto={producto} newproducto={newproducto} />
                     </Card.Body>
                   </Card>
                 </Col>
               </Row>
             </Container>
-            
+
           )
-          
+
         })
       }
     </div>

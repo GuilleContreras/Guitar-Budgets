@@ -1,5 +1,6 @@
 import NavBar from "../Navbar";
 import CartItem from "./CartItem";
+import ContactOrderForm from "./CartOrderForm";
 
 const CartContainer = () => {
     
@@ -8,6 +9,7 @@ const CartContainer = () => {
         <>
         <NavBar />
         <CartItem />
+        <ContactOrderForm />
         </>
     )
 }

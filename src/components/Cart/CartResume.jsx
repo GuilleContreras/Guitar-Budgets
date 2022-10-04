@@ -3,10 +3,10 @@ import React, { useContext } from 'react';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Container } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 
 const CartResume = () =>{
-    const {cart} = useContext(CartContext)
+    const {cart, sendOrder} = useContext(CartContext)
 
     const sumallPrices = cart.map(p => (p.item.price)*(p.quantity)).reduce((prev, curr) => prev + curr, 0);
     const sumallProducts = cart.map(p => p.quantity).reduce((prev, curr) => prev + curr, 0);
@@ -22,10 +22,11 @@ const CartResume = () =>{
                         <Col>
                             <Card.Title>Total de la Compra</Card.Title>
                             <Card.Title className="text-center mt-5 mb-4">${sumallPrices}</Card.Title>
+                            <Button onClick={() => sendOrder()}>Enviar orden</Button>  
                         </Col>
                     </Row>   
                 </Card>
-            </Container>
+        </Container>
     )
 }
 

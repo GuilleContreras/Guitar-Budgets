@@ -31,8 +31,8 @@ const NavBar = ({idCategoria}) => {
                                 <NavDropdown.Item><Link to={`/categoria/Accessories`}>Accesories</Link></NavDropdown.Item>
                                 <NavDropdown.Item><Link to={`/categoria/Pedalboard`}>PedalBoard</Link></NavDropdown.Item>
                                 <NavDropdown.Item><Link to={`/categoria/Stompbox`}>Stomp Box</Link></NavDropdown.Item>
-                                <NavDropdown.Item><Link to={`/categoria/Guitar-Amps`}>Guitar Amps</Link></NavDropdown.Item>
-                                <NavDropdown.Item><Link to={`/categoria/Bass-Amps`}>Bass Amps</Link></NavDropdown.Item>
+                                <NavDropdown.Item><Link to={`/categoria/Guitar Amps`}>Guitar Amps</Link></NavDropdown.Item>
+                                <NavDropdown.Item><Link to={`/categoria/Bass Amps`}>Bass Amps</Link></NavDropdown.Item>
                                     <NavDropdown.Divider />
                                     <NavDropdown.Item><Link to={`/productos`}>All Categories</Link></NavDropdown.Item>
                             </NavDropdown>

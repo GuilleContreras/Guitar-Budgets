@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { getFirestore, getDocs, collection } from 'firebase/firestore'
+import { getFirestore, getDocs, collection, addDoc } from 'firebase/firestore'
 const CartContext = React.createContext();
 
 const CartProvider = ({ children }) => {
 
     const [cart, setCart] = useState([]);
     const [products, setProducts] = useState([]);
+    const [order, setOrderId] = useState([]);
 
     useEffect(() =>{
         const db = getFirestore();
@@ -15,6 +16,18 @@ const CartProvider = ({ children }) => {
         });
 
     }, []);
+
+const sendOrder = () =>{
+    const order = {
+        buyer: {name: "Daiana", phone: "2222", email: "a@caca.com"},
+        items: [{name: "Bici", price: 100}],
+        total: 100
+    };
+
+    const db= getFirestore();
+    const ordersCollection = collection(db, "orders");
+    addDoc(ordersCollection, order).then(({id}) => setOrderId(id));
+}
 
 
     let cartProductAux = [];
@@ -48,7 +61,7 @@ const CartProvider = ({ children }) => {
     }
 
     return (
-        <CartContext.Provider value={{ addItem, removeItem, clear, cart, setCart, products }}>
+        <CartContext.Provider value={{ addItem, removeItem, clear, cart, setCart, products, sendOrder }}>
             {children}
         </CartContext.Provider>
     )

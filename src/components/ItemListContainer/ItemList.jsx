@@ -8,6 +8,7 @@ const ItemList = ({productos}) => {
         <Container>
             <Row>
             <h1 className='itemTitle'>Our Products</h1>
+            <hr className="hrColor"></hr>
             </Row>
             <Row>
             {
