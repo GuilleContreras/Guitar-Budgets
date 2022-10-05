@@ -7,6 +7,8 @@ import { Button } from 'react-bootstrap';
 import '../Cart/cartItem.css';
 import { CartContext } from '../../context/CartContext';
 import { Link } from 'react-router-dom';
+import CartResume from './CartResume';
+import ContactOrderForm from './CartOrderForm';
 
 const articlesImg = require.context(`../assets/articles`, true)
 
@@ -64,7 +66,7 @@ const CartItem = () => {
                         </Col>
                         <Col>
                             <Card.Title>Erase item</Card.Title>
-                            <Button variant="light" className="text-center mt-4 mb-4" onClick={() => removeItemButtonHandler(producto.item.id)}><img src="boton-x.png" alt="" /></Button>
+                            <Button variant="light" className="text-center mt-4 mb-4 eraseButton" onClick={() => removeItemButtonHandler(producto.item.id)}><img className='cartItemImg' src="boton-x.png" alt="" /></Button>
                         </Col>
                     </Row>
                 </Card>
@@ -72,8 +74,12 @@ const CartItem = () => {
                 )
             })
             }
+            <CartResume />
+            <ContactOrderForm />
             </div>
-          );    
+            
+          ); 
+             
         }
 
     }

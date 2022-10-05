@@ -6,11 +6,13 @@ import Col from 'react-bootstrap/Col';
 import { Button, Container } from 'react-bootstrap';
 
 const CartResume = () =>{
-    const { cart, total, setTotal } = useContext(CartContext)
+    const { cart, total, setTotal, clear } = useContext(CartContext)
 
-    const sumallPrices = setTotal(cart.map(p => (p.item.price)*(p.quantity)).reduce((prev, curr) => prev + curr, 0));
+    const sumallPrices = cart.map(p => (p.item.price)*(p.quantity)).reduce((prev, curr) => prev + curr, 0);
+    setTotal(sumallPrices);
     const sumallProducts = cart.map(p => p.quantity).reduce((prev, curr) => prev + curr, 0);
 
+    
     return (
         <Container fluid className='p-2'>
                 <Card className='cartCard'>
@@ -22,7 +24,7 @@ const CartResume = () =>{
                         <Col>
                             <Card.Title>Total de la Compra</Card.Title>
                             <Card.Title className="text-center mt-5 mb-4">${total}</Card.Title>
-                            <Button>Enviar orden</Button>  
+                            <Button onClick={() => clear()}>Vaciar Carrito</Button> 
                         </Col>
                     </Row>   
                 </Card>

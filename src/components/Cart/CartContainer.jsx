@@ -10,8 +10,6 @@ const CartContainer = () => {
         <>
         <NavBar />
         <CartItem />
-        <CartResume />
-        <ContactOrderForm />
         </>
     )
 }
