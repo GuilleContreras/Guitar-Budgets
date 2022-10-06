@@ -7,8 +7,7 @@ import { Button } from 'react-bootstrap';
 import '../Cart/cartItem.css';
 import { CartContext } from '../../context/CartContext';
 import { Link } from 'react-router-dom';
-import CartResume from './CartResume';
-import ContactOrderForm from './CartOrderForm';
+
 
 const articlesImg = require.context(`../assets/articles`, true)
 
@@ -74,8 +73,6 @@ const CartItem = () => {
                 )
             })
             }
-            <CartResume />
-            <ContactOrderForm />
             </div>
             
           ); 

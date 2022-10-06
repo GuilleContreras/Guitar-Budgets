@@ -8,13 +8,12 @@ import '../Cart/cartOrderForm.css';
 
 const ContactOrderForm = () => {
 
-    const {cart, total, clear} = useContext(CartContext);
-
-    const [id, setId] = useState()
+    const { cart, total, setId } = useContext(CartContext);
 
     let now = new Date();
+
     const [form, setForm] = useState({
-        buyer: {name: "", email: "", phone: ""},
+        name: '', email: '', phone: '',
         items: [...cart],
         total: total,
         date: now
@@ -32,35 +31,35 @@ const ContactOrderForm = () => {
         addDoc(ordersCollection, form).then((snapshot) => setId(snapshot.id));
     }
 
-    return (
-        <>
-            <Container>
-                {typeof id !== "undefined" ? (
-                <p className='formMsg'>Has enviado un formulario y la id es {id}</p>
-                ) : (
-                <div>
-                    <form onSubmit={submitHandler}>
-                        <div>
-                            <label htmlFor="name" className='nameLabel'>Name and Lastname</label>
-                            <input type="text" name="name" id="name" value={form.name} onChange={changeHandler} />
-                        </div>
-                        <div>
-                            <label htmlFor="email" className='emailLabel'>Email</label>
-                            <input type="email" name="email" id="email" value={form.email} onChange={changeHandler} />
-                        </div>
-                        <div>
-                            <label htmlFor="phone" className='phoneLabel'>Phone Number</label>
-                            <input type="phone" name="phone" id="phone" value={form.phone} onChange={changeHandler} />
-                        </div>
-                        <Button variant="primary" type="submit" className='m-3'>
-                            Submit
-                        </Button>
-                    </form>
-                </div> 
-                )}
-            </Container>
-        </>
-    );
+    if (cart.length !== 0) {
+
+        return (
+            <>
+                <Container>
+                    <div>
+                        <h2 className='cartItemH2'>Generá tu orden!</h2>
+                        <form onSubmit={submitHandler}>
+                            <div>
+                                <label htmlFor="name" className='nameLabel'>Name and Lastname</label>
+                                <input type="text" name="name" id="name" value={form.name} onChange={changeHandler} />
+                            </div>
+                            <div>
+                                <label htmlFor="email" className='emailLabel'>Email</label>
+                                <input type="email" name="email" id="email" value={form.email} onChange={changeHandler} />
+                            </div>
+                            <div>
+                                <label htmlFor="phone" className='phoneLabel'>Phone Number</label>
+                                <input type="phone" name="phone" id="phone" value={form.phone} onChange={changeHandler} />
+                            </div>
+                            <Button variant="primary" type="submit" className='m-3'>
+                                Submit
+                            </Button>
+                        </form>
+                    </div>
+                </Container>
+            </>
+        );
+    }
 }
 
 export default ContactOrderForm;

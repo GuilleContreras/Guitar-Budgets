@@ -7,6 +7,7 @@ const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
     const [products, setProducts] = useState([]);
     const [total, setTotal] = useState(0);
+    const [id, setId] = useState();
 
     useEffect(() =>{
         const db = getFirestore();
@@ -51,7 +52,7 @@ const CartProvider = ({ children }) => {
     }
 
     return (
-        <CartContext.Provider value={{ addItem, removeItem, clear, cart, setCart, products, setTotal, total }}>
+        <CartContext.Provider value={{ addItem, removeItem, clear, cart, setCart, products, setTotal, total, id, setId }}>
             {children}
         </CartContext.Provider>
     )
