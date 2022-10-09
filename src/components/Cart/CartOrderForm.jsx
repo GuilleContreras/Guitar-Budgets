@@ -11,11 +11,14 @@ const ContactOrderForm = () => {
     const { cart, total, setId } = useContext(CartContext);
 
     let now = new Date();
+    
+    let totalTemp = total;
 
+    console.log(totalTemp);
     const [form, setForm] = useState({
         name: '', email: '', phone: '',
         items: [...cart],
-        total: total,
+        total: totalTemp,
         date: now
     })
 
