@@ -6,11 +6,8 @@ import Col from 'react-bootstrap/Col';
 import { Button, Container } from 'react-bootstrap';
 
 const CartResume = () => {
-    const { cart, total, setTotal, clear } = useContext(CartContext)
+    const { cart, total, clear, productsAdded } = useContext(CartContext)
 
-    const sumallPrices = cart.map(p => (p.item.price) * (p.quantity)).reduce((prev, curr) => prev + curr, 0);
-    setTotal(sumallPrices);
-    const sumallProducts = cart.map(p => p.quantity).reduce((prev, curr) => prev + curr, 0);
 
     if (cart.length !== 0) {
         return (
@@ -19,7 +16,7 @@ const CartResume = () => {
                     <Row>
                         <Col >
                             <Card.Title>Cantidad de Productos</Card.Title>
-                            <Card.Title className="text-center mt-5 mb-4">{sumallProducts}</Card.Title>
+                            <Card.Title className="text-center mt-5 mb-4">{productsAdded}</Card.Title>
                         </Col>
                         <Col>
                             <Card.Title>Total de la Compra</Card.Title>
