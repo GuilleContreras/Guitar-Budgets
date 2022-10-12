@@ -16,28 +16,22 @@ const NavBar = ({idCategoria}) => {
                 <div className="navBarContent">
                     <Row>
                         <Col>
-                        <Link to={`/`}>
-                            <Navbar.Brand className='logoFont'>Guitar Budgets</Navbar.Brand>
-                        </Link>
+                            <Navbar.Brand as={Link} to="/" className='logoFont'>Guitar Budgets</Navbar.Brand>
                         </Col>
                         <Col>
                         <Nav className="me-auto">
-                            
-                                <Nav.Link><Link to={`/`}>Home</Link></Nav.Link>
-                            
-                            <Nav.Link>About</Nav.Link>
+                            <Nav.Link as={Link} to="/">Home</Nav.Link>
                             <NavDropdown title="Category" id="basic-nav-dropdown">
-                                
-                                <NavDropdown.Item><Link to={`/categoria/Accessories`}>Accesories</Link></NavDropdown.Item>
-                                <NavDropdown.Item><Link to={`/categoria/Pedalboard`}>PedalBoard</Link></NavDropdown.Item>
-                                <NavDropdown.Item><Link to={`/categoria/Stompbox`}>Stomp Box</Link></NavDropdown.Item>
-                                <NavDropdown.Item><Link to={`/categoria/Guitar Amps`}>Guitar Amps</Link></NavDropdown.Item>
-                                <NavDropdown.Item><Link to={`/categoria/Bass Amps`}>Bass Amps</Link></NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to="/categoria/Accessories">Accesories</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to="/categoria/Pedalboard">PedalBoard</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to="/categoria/Stompbox">Stomp Box</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to="/categoria/Guitar Amps">Guitar Amps</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to="/categoria/Bass Amps">Bass Amps</NavDropdown.Item>
                                     <NavDropdown.Divider />
-                                    <NavDropdown.Item><Link to={`/productos`}>All Categories</Link></NavDropdown.Item>
+                                    <NavDropdown.Item as={Link} to="/productos">All Categories</NavDropdown.Item>
                             </NavDropdown>
                             <Nav.Link className="justify-content-end">
-                            <Link to={`/cart`}><CartWidget /></Link>
+                            <CartWidget as={Link} to="//cart" />
                             </Nav.Link>
                         </Nav>
                         </Col>
