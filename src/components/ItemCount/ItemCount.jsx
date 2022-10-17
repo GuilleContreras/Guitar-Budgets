@@ -11,12 +11,12 @@ const ItemCount = ({ stock, producto }) => {
     const [btnPress, setbtnPress] = useState(false);
     const [cantidadCompra, setcantidadCompra] = useState(0);
     const quantity = cantidadCompra;
-  
+
     const { addItem } = useContext(CartContext);
 
     const onAddButtonHandler = () => {
-      addItem(producto, quantity)
-      setbtnPress(true)
+        addItem(producto, quantity)
+        setbtnPress(true)
     }
 
     const addNumber = () => {
@@ -33,7 +33,6 @@ const ItemCount = ({ stock, producto }) => {
 
     if (btnPress === false) {
         return (
-
             <Container fluid>
                 <Row className="justify-content-center">
                     <Col xs lg="2"><Button variant="primary" className="p-1" onClick={restNumber}>-</Button>{' '}</Col>
@@ -42,10 +41,9 @@ const ItemCount = ({ stock, producto }) => {
                 </Row>
                 <Row className="p-1">
                     <Col>
-                        <Button variant="primary" onClick={()=> onAddButtonHandler(producto,quantity)} >Agregar al Carrito</Button>{' '}
+                        <Button variant="primary" onClick={() => onAddButtonHandler(producto, quantity)} >Agregar al Carrito</Button>{' '}
                     </Col>
                 </Row>
-                
             </Container>
         )
     } else {

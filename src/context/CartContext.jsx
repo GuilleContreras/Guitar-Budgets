@@ -10,7 +10,7 @@ const CartProvider = ({ children }) => {
     const [id, setId] = useState();
     const [productsAdded, setProductsAdded] = useState(0);
 
-    useEffect(() =>{
+    useEffect(() => {
         const db = getFirestore();
         const productsRef = collection(db, "products");
         getDocs(productsRef).then((snapshot) => {
@@ -19,17 +19,12 @@ const CartProvider = ({ children }) => {
 
     }, []);
 
-    useEffect(()=>{
+    useEffect(() => {
         const sumallPrices = cart.map(p => (p.item.price) * (p.quantity)).reduce((prev, curr) => prev + curr, 0);
         setTotal(sumallPrices);
         const sumallProducts = cart.map(p => p.quantity).reduce((prev, curr) => prev + curr, 0);
         setProductsAdded(sumallProducts);
     }, [cart])
-
-
-
-
-
 
     let cartProductAux = [];
     const addItem = (item, quantity) => {
@@ -66,7 +61,6 @@ const CartProvider = ({ children }) => {
             {children}
         </CartContext.Provider>
     )
-
 }
 
 export { CartProvider, CartContext }

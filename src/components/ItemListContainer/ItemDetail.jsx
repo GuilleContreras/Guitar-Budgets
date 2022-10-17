@@ -14,7 +14,6 @@ const ItemDetail = ({ newproducto }) => {
 
 
   return (
-
     <div>
       <NavBar />
       <Container>
@@ -30,7 +29,6 @@ const ItemDetail = ({ newproducto }) => {
               <Row md={12}>
                 <Col>
                   <Card border="light">
-
                     <Card.Body className="modalText">
                       <Card.Header>{producto.name}</Card.Header>
                       <Row>
@@ -38,7 +36,6 @@ const ItemDetail = ({ newproducto }) => {
                           <Card.Text className="m-3">
                             {producto.description}
                           </Card.Text>
-
                         </Col>
                         <Col>
                           <img className="img-fluid detailImg" alt="imgDetail" variant="top" src={articlesImg(`./${producto.image}`)} />
@@ -55,13 +52,10 @@ const ItemDetail = ({ newproducto }) => {
                 </Col>
               </Row>
             </Container>
-
           )
-
         })
       }
     </div>
-
   );
 }
 

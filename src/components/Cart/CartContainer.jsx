@@ -14,7 +14,7 @@ const CartContainer = () => {
 
     let tempId = id;
 
-    const idUndefined = () =>{
+    const idUndefined = () => {
         tempId = undefined;
     }
 
@@ -47,7 +47,7 @@ const CartContainer = () => {
             </div>
         </>
     )
-    
+
 }
 
 

@@ -1,19 +1,18 @@
-
-.formMsg{
+.formMsg {
     color: white;
 }
 
-.nameLabel{
-    color: white;
-    margin: 8px;
-}
-
-.emailLabel{
+.nameLabel {
     color: white;
     margin: 8px;
 }
 
-.phoneLabel{
+.emailLabel {
+    color: white;
+    margin: 8px;
+}
+
+.phoneLabel {
     color: white;
     margin: 8px;
 }

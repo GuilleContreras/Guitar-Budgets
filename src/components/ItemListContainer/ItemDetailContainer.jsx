@@ -8,8 +8,7 @@ const ItemDetailContainer = ({ id }) => {
 
     const [newproducto, setnewProducto] = useState([])
     const { idProducto } = useParams();
-    const { products} = useContext(CartContext);
-
+    const { products } = useContext(CartContext);
 
     useEffect(() => {
         const getProducts = new Promise((res, rej) => {
